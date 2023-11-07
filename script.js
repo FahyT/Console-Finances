@@ -89,12 +89,25 @@ var finances = [
 
 const total_months = finances.length;
 let total = 0;
+let largest_profit = 0;
+let profit_change = [];
+let total_change = 0;
+let largest_loss = 0;
 
 for (let i =0; i < finances.length; i++) {
   total += finances[i][1];
+  if (i != 0) {
+    profit_change.push(finances[i][1] - finances[i-1][1]); //push change in profit/loss to separate array
+  }
 }
 
-average_total = total/(total-months-1);
+//find total changes
+
+for (let i=0; i<profit_change.length; i++) {
+  total_change += profit_change[i];
+}
+
+average_change = total_change / profit_change.length; //find average
 
 // Code to log results to console
 
@@ -102,3 +115,4 @@ console.log ("Financial Analysis");
 console.log ("-----------------------------");
 console.log ("Total Months: " + total_months);
 console.log ("Total: $" + total);
+console.log ("Average Change: " + average_change);
