@@ -86,3 +86,19 @@ var finances = [
   ['Jan-2017', 138230],
   ['Feb-2017', 671099],
 ];
+
+const total_months = finances.length;
+let total = 0;
+
+for (let i =0; i < finances.length; i++) {
+  total += finances[i][1];
+}
+
+average_total = total/(total-months-1);
+
+// Code to log results to console
+
+console.log ("Financial Analysis");
+console.log ("-----------------------------");
+console.log ("Total Months: " + total_months);
+console.log ("Total: $" + total);
