@@ -87,17 +87,30 @@ var finances = [
   ['Feb-2017', 671099],
 ];
 
+// set variables
 const total_months = finances.length;
 let total = 0;
-let largest_profit = 0;
 let profit_change = [];
 let total_change = 0;
+let largest_profit = 0;
+let large_profit_index;
 let largest_loss = 0;
+let large_loss_index;
+
+//loop through array to find total, create profit_change array and find biggest profit/loss
 
 for (let i =0; i < finances.length; i++) {
   total += finances[i][1];
   if (i != 0) {
     profit_change.push(finances[i][1] - finances[i-1][1]); //push change in profit/loss to separate array
+  }
+  if (finances[i][1] > largest_profit) {
+    largest_profit = finances[i][1];
+    large_profit_index = i;
+  }
+  if (finances[i][1] < largest_loss) {
+    largest_loss = finances[i][1];
+    large_loss_index = i;
   }
 }
 
@@ -115,4 +128,6 @@ console.log ("Financial Analysis");
 console.log ("-----------------------------");
 console.log ("Total Months: " + total_months);
 console.log ("Total: $" + total);
-console.log ("Average Change: " + average_change);
+console.log ("Average Change: " + (Math.round(average_change*100)/100));
+console.log ("Greatest Increase in Profits/Losses: " + finances[large_profit_index]);
+console.log ("Greatest Decrease in Profits/Losses: " + finances[large_loss_index]);
