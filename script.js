@@ -129,5 +129,5 @@ console.log ("-----------------------------");
 console.log ("Total Months: " + total_months);
 console.log ("Total: $" + total);
 console.log ("Average Change: " + (Math.round(average_change*100)/100));
-console.log ("Greatest Increase in Profits/Losses: " + finances[large_profit_index]);
-console.log ("Greatest Decrease in Profits/Losses: " + finances[large_loss_index]);
+console.log ("Greatest Increase in Profits/Losses: " + finances[large_profit_index][0] + " ($" + finances[large_profit_index][1] + ")");
+console.log ("Greatest Decrease in Profits/Losses: " + finances[large_loss_index][0] + " ($" + finances[large_loss_index][1] + ")");
