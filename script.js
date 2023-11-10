@@ -93,9 +93,9 @@ let total = 0;
 let profit_change = [];
 let total_change = 0;
 let largest_profit = 0;
-let large_profit_index;
+let large_profit_month;
 let largest_loss = 0;
-let large_loss_index;
+let large_loss_month;
 
 //loop through array to find total, create profit_change array and find biggest profit/loss
 
@@ -104,20 +104,28 @@ for (let i =0; i < finances.length; i++) {
   if (i != 0) {
     profit_change.push(finances[i][1] - finances[i-1][1]); //push change in profit/loss to separate array
   }
-  if (finances[i][1] > largest_profit) {
-    largest_profit = finances[i][1];
-    large_profit_index = i;
-  }
-  if (finances[i][1] < largest_loss) {
-    largest_loss = finances[i][1];
-    large_loss_index = i;
-  }
+  // if (finances[i][1] > largest_profit) {
+  //   largest_profit = finances[i][1];
+  //   large_profit_index = i;
+  // }
+  // if (finances[i][1] < largest_loss) {
+  //   largest_loss = finances[i][1];
+  //   large_loss_index = i;
+  // }
 }
 
 //find total changes
 
 for (let i=0; i<profit_change.length; i++) {
   total_change += profit_change[i];
+  if (profit_change[i] > largest_profit) {
+    largest_profit = profit_change[i];
+    large_profit_month = i+1;
+  }
+  if (profit_change[i] < largest_loss) {
+    largest_loss = profit_change[i];
+    large_loss_month = i+1;
+  }
 }
 
 average_change = total_change / profit_change.length; //find average
@@ -129,5 +137,5 @@ console.log ("-----------------------------");
 console.log ("Total Months: " + total_months);
 console.log ("Total: $" + total);
 console.log ("Average Change: " + (Math.round(average_change*100)/100));
-console.log ("Greatest Increase in Profits/Losses: " + finances[large_profit_index][0] + " ($" + finances[large_profit_index][1] + ")");
-console.log ("Greatest Decrease in Profits/Losses: " + finances[large_loss_index][0] + " ($" + finances[large_loss_index][1] + ")");
+console.log ("Greatest Increase in Profits/Losses: " + finances[large_profit_month][0] + " ($" + largest_profit + ")");
+console.log ("Greatest Decrease in Profits/Losses: " + finances[large_loss_month][0] + " ($" + largest_loss + ")");
