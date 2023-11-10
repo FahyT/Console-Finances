@@ -104,14 +104,6 @@ for (let i =0; i < finances.length; i++) {
   if (i != 0) {
     profit_change.push(finances[i][1] - finances[i-1][1]); //push change in profit/loss to separate array
   }
-  // if (finances[i][1] > largest_profit) {
-  //   largest_profit = finances[i][1];
-  //   large_profit_index = i;
-  // }
-  // if (finances[i][1] < largest_loss) {
-  //   largest_loss = finances[i][1];
-  //   large_loss_index = i;
-  // }
 }
 
 //find total changes
